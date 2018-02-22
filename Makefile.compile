@@ -37,7 +37,7 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 count:
-	find . | grep '\.cc' '\.h' | xargs cloc cmb
+	find . | grep -R '\.cc' '\.h' | xargs cloc cmb
 
 counta:
-	find . | grep '\.cc' | xargs wc -l
+	find . | grep -R '\.cc' | xargs wc -l
