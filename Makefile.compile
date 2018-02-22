@@ -1,0 +1,43 @@
+.DEFAULT_GOAL=all
+
+CC = g++
+GDB = gdb
+CFLAGS += -c -O2 -Weffc++ -std=c++1z -Wall -MMD -ggdb
+
+BUILD_DIR = build
+SRCS = $(shell find ./src -name "*.cc")
+ifdef TEST
+SRCS += $(shell find ./test -name "*.cc")
+endif
+OBJS = $(patsubst ./%.cc,$(BUILD_DIR)/%.o,$(SRCS))
+
+.PHONY: all gdb run rebuild clean count counta
+
+all: $(OBJS)
+	@$(CC) $^ -o $(BIN)
+	@echo "Generate ==> $(BIN)" 1>&2
+
+$(BUILD_DIR)/%.o: %.cc
+	@echo "+ $<"
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) $< -o $@
+
+gdb: all
+	$(GDB) --args ./$(BIN) $(ARGS)
+
+run: all
+	@./$(BIN) $(ARGS)
+
+rebuild: clean all
+
+DEPS = $(OBJS:.o=.d)
+-include $(DEPS) 
+
+clean:
+	rm -rf $(BUILD_DIR)
+
+count:
+	find . | grep '\.cc' '\.h' | xargs cloc cmb
+
+counta:
+	find . | grep '\.cc' | xargs wc -l

@@ -1,3 +1,3 @@
 BIN ?= build/http-server
 
-include ../Makefile.compile
+include Makefile.compile
