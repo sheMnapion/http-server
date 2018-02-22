@@ -16,6 +16,9 @@ p {
 	font-weight: bold;
 }
 
+iframe{
+	text-align: center;
+}
 body {
 	color:white;
 	background-color: #d2b48c;
