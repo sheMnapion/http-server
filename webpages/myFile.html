@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+<script type="text/javascript">
+		var myTime=setTimeout("disptime()",1000);
+</script>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="/webpages/myFileStyle.css">
+<title>Welcome to Lac's Blog!</title>
+</head>
+<body>
+<div id="header">
+	<h1>
+	<span id=top>Welcome to Lac Jolime Lee's very first personal html blog!</span>
+	</h1>
+	<h2>Keep updating!</h2>
+	<p id="myclock">Clock Line</p>
+	<p>
+	A wonderful world in Laslafsorin
+	</p>
+	<p id="LoginColumn"></p>
+</div>
+<div id="practiceCorner">
+<h2>Practice Corner</h2>
+	<p>This is a corner established for showing the up-to-date standards for Laslafsorin. As all known, Laslafsorin evolved from English and Spanish while absorbing their grammatical characteristics and chose Chinese characters as its word origins by performing certain transforming regulations. For example, the Chinese character "Jing"(<em>like in word Beijing</em>)means capital. We divided the character into three parts and chose their relative similiar forms in Japanese and Korean and so on. Finally we got iroch(in Latin spelling) and we can know relative words' meaning like <q>Ninroch</q> and <q>Soiroch</q>, the latter meaning Nanjing.
+	</p>
+	<p>
+		On the below there are some frequently asked questions and idioms of Laslafsorin. The <em>official</em> explanations are given in Laslafsorin.
+	</p>
+	<dl>
+		<dt>Laslafso</dt>
+		<dd>Deu vn crianid de Lac Jolime Lee</dd>
+		<dt>Saix</dt>
+		<dd>Ah Suenoi Suha er Ninroch</dd>
+	</dl>
+	<p id="highLight">
+		Note that all Laslafsorin used in this page are written in standard Latin-form Laslafsorin, not <em>standard Laslafsorin</em> for being able to be explained by more explorers. Since we intend to publicize  this language, we decide to use this form which is more publicly accepted and compatible to more. However, since Laslafsorin has 33 characters rather than 26 given in English, we used some extra skills to express them (rules be explained <a href="/webpages/rules.html">here</a>). Please be noted.
+	</p>
+	<p>
+		Links:
+		<a target="_blank" href="http://www.baidu.com/" title="GO TO SEARCH BAIDU">Go Search Baidu</a>
+		<a target="_blank" href="http://validator.w3.org" title="GO TO VALIDATE ON W3C">Go Validating on W3C</a>
+		<a target="_blank" href="http://jigsaw.w3.org/css-validator/" title="GO TO VALIDATE CSS">Go Validating your CSS</a>
+	</p>
+	<p class="references">
+		Other Relevant Links and blank practices
+		<a href="/hello">a simple hello</a>
+		<a href="/bhello">a better hello</a>
+	</p>
+</div>
+<div id="pictureCorner">
+	<p class="references">
+		<a href="https://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gbk&word=%D0%C7%BF%D5&fr=ala&ala=1&alatpl=adress&pos=0&hs=2&xthttps=111111" target="_blank">
+		<img id="starNight" src="/images/star.jpeg" alt="A starry night which decorates my blog" height="300" width="400">
+		</a>
+		<br>
+		See this starry night!
+	</p>
+	<h3>An inexistent star pic</h3>
+	<p>This is <em>the pic</em><br><img src="/images/strr.jpeg" alt="Imagine one here" width="45" height="100">
+	</p>
+</div>
+<div id="others">
+		<table summary="Sar tocmosrra soma detay da Ascii.">
+		<caption>soma da Ascii</caption>
+		<tr>
+			<th>geih decim</th>
+			<th>geih octim</th>
+			<th>geih tshar</th>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>9</td>
+			<td>TAB</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>A</td>
+			<td>tshanjline</td>
+		</tr>
+		</table>
+	<p>
+		<a href="#top">To the Top</a>
+	</p>
+	<p class="options">Al Bon Lac Jolime Lee/2018.2.5</p>
+<iframe src="../a.txt" align="center" id="iframe1">HELLO</iframe>
+<script type="text/javascript">
+	function disptime(){
+		var today=new Date();
+		var hh=today.getHours();
+		var mm=today.getMinutes();
+		var ss=today.getSeconds();
+		var inerHtml;
+		inerHtml="<h3>Present Time: ";
+		if(hh<10)
+			inerHtml+="0";
+		inerHtml+=hh;
+		inerHtml+=":";
+		if(mm<10)
+			inerHtml+="0";
+		inerHtml+=mm;
+		inerHtml+=":";
+		if(ss<10)
+			inerHtml+="0";
+		inerHtml+=ss;
+		inerHtml+="</h3>";
+		document.getElementById("myclock").innerHTML=inerHtml;//"<h4>Present Time: "+hh+":"+mm+":"+ss+"</h4>";
+	}
+	var loginInfo=document.getElementById("LoginColumn");
+	disptime();
+	//readFile();
+	var ifram=document.getElementById("iframe1");
+	alert(ifram.align);
+	var iframContent=ifram.contentDocument.documentElement;
+	alert(iframContent);
+	var txtValue=iframContent.innerText;
+	alert(txtValue);
+	if(txtValue.length==0){
+		loginInfo.innerHTML="";
+		loginInfo.innerHTML+="<p>";
+		loginInfo.innerHTML+="<a href=/login>login</a> ";
+		loginInfo.innerHTML+="<a href=/signup>sign up</a></p>";
+	}
+	else{
+		loginInfo.innerHTML+="<p>You login as <em>"+txtValue+"</em> <a href=\"/logout\">log out</a></p>";
+	}
+	var findPic=document.getElementById("starNight");
+	alert("Done here with "+findPic);
+</script>
+</div>
+<div id="footCorner">
+<blockquote>
+	To be or not to be,<br>
+	that is the question.<br>
+	by Williams Shakespeare
+</blockquote>
+<p id="footer">
+	Copywrights Reserved for Ah Royali Vnestui Colij de Laslafsorin, 2018
+</p>
+</div>
+</body>

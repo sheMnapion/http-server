@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+<title>ON LOGIN</title>
+<link type="text/css" rel="stylesheet" href="/webpages/myFileStyle.css">
+</head>
+<body onload="disptime()">
+	<form method="post" name="Welcome to my blog" action="#" class="loginColumn" >
+	<p>User Account:<input type="text" name="account" id="account" /></p>
+	<p>User Password:<input type="password" name="passWord" id="pasaWord"/></p>
+	<p><input type="submit" name="login" id="login" value="LOGIN" /></p>
+	<p>
+		Return to the <a href="webpages/myFile.html#top" target="_blank">blog</a>
+		Go to <a href="/signup" >sign up</a>.
+	</p>
+	<p id="myclock"></p>
+	</form>
+	<script type="text/javascript">
+	function disptime(){
+		var today=new Date();
+		var hh=today.getHours();
+		var mm=today.getMinutes();
+		var ss=today.getSeconds();
+		if(ss==0&&mm==0)
+			alert("On the clock!");
+		var inerHtml;//=document.getElementById("myclock").innerHTML;
+		inerHtml="<h3>Present Time:";
+		if(hh<10)
+			inerHtml+="0";
+		inerHtml+=hh;
+		inerHtml+=":";
+		if(mm<10)
+			inerHtml+="0";
+		inerHtml+=mm;
+		inerHtml+=":";
+		if(ss<10)
+			inerHtml+="0";
+		inerHtml+=ss;
+		inerHtml+="</h3>";
+		document.getElementById("myclock").innerHTML=inerHtml;
+	}
+	var myTime=setTimeout("disptime()",10000);
+</script>
+</body>
+</html>

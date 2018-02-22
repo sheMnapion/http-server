@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function ()
+{
+    var oPanDiv=document.getElementById('oPanDiv');
+    var aA=oPanDiv.getElementsByTagName('a');
+    var i=0;
+    var answer=3;//->第三个答案
+ 
+    for(i=0;i<aA.length;i++)
+    {
+        aA[i].index=i;
+        aA[i].onclick=function ()
+        {
+            if((this.index+1)==answer)
+            {
+                alert('正确');
+            }
+            else
+            {
+                alert('错误')
+            }
+        }
+    }
+}
+</script>
+</head>
+<body>
+<div id="oPanDiv">
+    <a href="javascript:;">A</a>
+    <a href="javascript:;">B</a>
+    <a href="javascript:;">C</a>
+</div>
+</body>
+</html>

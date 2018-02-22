@@ -1,0 +1,89 @@
+h1,h2{
+	font-family: sans-serif;
+	color: #007e7e;
+}
+
+h1{
+	border-bottom: thin dotted #888888;
+	font-size: 150%;
+}
+
+h2{
+	font-size: 130%;
+}
+p {
+	font: Courier;
+	font-weight: bold;
+}
+
+body {
+	color:white;
+	background-color: #d2b48c;
+	font-family: Verdana, Monospace, Geneva, Arial, sans-serif;
+	font-size: small;
+	line-height: 1.6em;
+}
+
+p.references{
+	color: maroon;
+	/*border-bottom: 1px solid black;*/
+	font: Times New Roman;
+	text-align: center;
+}
+
+#highLight{
+	border-color:	#d2b48c;
+	border-width:	1px;
+	border-style:	dashed;
+	background-color: #a7cece;
+	padding: 25px;
+	padding-left: 80px;
+	margin: 30px;
+	margin-right: 250px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #444444;
+	line-height: 1.9em;
+	background-image: url(/images/fivestar.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 0px;
+}
+
+#header {
+	border-color: #d2b40c;
+	border-width: 4px;
+	border-bottom-style: solid;
+	text-align: center;
+}
+
+#practiceCorner {
+
+}
+form.loginColumn{
+	border-color: #d2b48c;
+	border-width: 2px;
+	border-style: dashed;
+	background-image: url(/images/login.jpeg);
+	background-position: middle;
+	background-repeat: no-repeat stretch;
+	color: black;
+	font-family: Georgia, "Times New Roman", serif;
+	text-align: center;
+	padding-top: 90px;
+	padding-bottom: 90px;
+	margin: 60px;
+	font-size: 150%;
+	border-radius: 25px;
+}
+blockquote {
+	font-style: italic;
+}
+
+#starNight{
+	padding: 1em;
+    background-color: #eaf3da;
+	border: 1px solid white;
+}
