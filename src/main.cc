@@ -42,7 +42,7 @@ int main() {
 	int connectTime=0;
 	memset(buf,0,sizeof(buf ));
 	while((conn = accept(servfd, (struct sockaddr*)&client_addr, &length)) != -1) {
-		//printf("Accepted\n");
+		printf("Accepted\n");
 		char *tempo,*resulta,*finalResult,*bufPointer;
 		bufPointer=buf;
 		ssize_t readLength=read(conn,(void *)bufPointer,READ_LENGTH);
