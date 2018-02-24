@@ -23,8 +23,8 @@
 </header>
 <nav>
 	<ul>
-	<li><a href="/webpages/blog.html">BLOG</a></li>
-	<li class="selected"><a href="/webpages/myFile.html">HOMEPAGE</a></li>
+	<li class="selected"><a href="/webpages/blog.html">BLOG</a></li>
+	<li><a href="/webpages/myFile.html">HOMEPAGE</a></li>
 	<li><a href="/login">LOGIN</a></li>
 	<li><a href="/signup">SIGNUP</a></li>
 	</ul>
@@ -32,8 +32,8 @@
 <div id="tableContainer">
 <div id="tableRow">
 <main>
-<h2>Practice Corner</h2>
-	<p>This is a corner established for showing the up-to-date standards for Laslafsorin. As all known, Laslafsorin evolved from English and Spanish while absorbing their grammatical characteristics and chose Chinese characters as its word origins by performing certain transforming regulations. For example, the Chinese character "Jing"(<em>like in word Beijing</em>)means capital. We divided the character into three parts and chose their relative similiar forms in Japanese and Korean and so on. Finally we got iroch(in Latin spelling) and we can know relative words' meaning like <q>Ninroch</q> and <q>Soiroch</q>, the latter meaning Nanjing.
+<h2>A BLOG ON DEVELOPING LASLAFSORIN</h2>
+	<p>Developing Laslafsorin has been a hard job for me since at first I have no experience or deep insight into language or other relevant things. I started with understanding international acoustic marks and choosing basic ones for my own. But the first edition turned out bad since I couldn't establish a stable link between its form and its meaning. Later I started from English by replacing their familiar pronunciations to something easy to guess just from the form of the letters<em> which actually came from Chinese spelling.</em> and I gradually evovles this language into a stable form with 33 characters and stable pronunciations.
 	</p>
 	<p>
 		On the below there are some frequently asked questions and idioms of Laslafsorin. The <em>official</em> explanations are given in Laslafsorin.
@@ -43,6 +43,8 @@
 		<dd>Deu vn crianid de Lac Jolime Lee</dd>
 		<dt>Saix</dt>
 		<dd>Ah Suenoi Suha er Ninroch</dd>
+		<dt>Laslafosorin</dt>
+		<dd>Ah fomai spelin d'shsivn geih latini escribmn</dd>
 	</dl>
 	<p id="highLight">
 		Note that all Laslafsorin used in this page are written in standard Latin-form Laslafsorin, not <em>standard Laslafsorin</em> for being able to be explained by more explorers. Since we intend to publicize  this language, we decide to use this form which is more publicly accepted and compatible to more. However, since Laslafsorin has 33 characters rather than 26 given in English, we used some extra skills to express them (rules be explained <a href="/webpages/rules.html">here</a>). Please be noted.
@@ -119,11 +121,11 @@
 	disptime();
 	//readFile();
 	var ifram=document.getElementById("iframe1");
-	alert(ifram.align);
+	//alert(ifram.align);
 	var iframContent=ifram.contentDocument.documentElement;
 	//alert(iframContent);
 	var txtValue=iframContent.innerText;
-	//alert(txtValue);
+	alert(txtValue);
 	if(txtValue.length==0){
 		loginInfo.innerHTML="";
 		loginInfo.innerHTML+="<p>";
@@ -134,7 +136,7 @@
 		loginInfo.innerHTML+="<p>You login as <em>"+txtValue+"</em> <a href=\"/logout\">log out</a></p>";
 	}
 	var findPic=document.getElementById("starNight");
-	//alert("Done here with "+findPic);
+	alert("Done here with "+findPic);
 </script>
 </aside>
 </div>

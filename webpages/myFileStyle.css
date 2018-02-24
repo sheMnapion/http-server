@@ -4,8 +4,8 @@ h1,h2{
 
 h1{
 	color: #007e7e;
-	border-bottom: thin dotted #888888;
-	font-size: 150%;
+	/*border-bottom: thin dotted #888888;
+	font-size: 150%;*/
 }
 
 h2{
@@ -61,24 +61,36 @@ div#tableRow {
 	border-bottom-left-radius: 0px;
 }
 
-#header {
+header {
 	background-color: #675c47;
 	border-color: #d2b40c;
 	border-width: 0px;
 	border-bottom-style: solid;
-	text-align: center;
+	/*text-align: center;*/
 	margin: 10px 10px 0px 10px;
 	height: 170px;
 }
+img#trophy {
+	top: 30px;
+	right: 30px;
+	opacity: 0.09;
+	height: 170px;
+	float: left;
+}
 
-#practiceCorner {
+#trophy1{ 
+	right: 0px;
+	position: relative;
+}
+main {
 	display: table-cell;
 	margin: 0px 10px 10px 10px;
 	vertical-align: top;
 }
 
-#pictureCorner {
+aside {
 	display: table-cell;
+	left: 500px;
 	margin: 0px 10px 10px 10px;
 	vertical-align: top;
 }
@@ -86,7 +98,7 @@ div#tableRow {
 #others {
 	display: table-cell;
 }
-#footCorner {
+footer {
 	background-color: #675c47;
 	color: #efe5d0;
 	text-align: center;
@@ -100,8 +112,6 @@ form.loginColumn{
 	border-width: 2px;
 	border-style: dashed;
 	background-image: url(/images/login.jpeg);
-	background-position: middle;
-	background-repeat: no-repeat stretch;
 	color: black;
 	font-family: Georgia, "Times New Roman", serif;
 	text-align: center;
@@ -119,4 +129,30 @@ blockquote {
 	padding: 1em;
     background-color: #eaf3da;
 	border: 1px solid white;
+}
+
+nav {
+	background-color: #efe5d0;
+	margin: 10px 10px 0px 10px;
+}
+nav ul {
+	margin: 0px;
+	list-style-type: none;
+	padding: 5px 0px 5px 0px;
+}
+
+nav ul li{
+	display: inline;
+	padding: 5px 10px 5px 10px;
+}
+
+nav ul li a:link, nav ul li a:visited {
+	color: #954b4b;
+	margin: 0px;
+	border-bottom: none;
+	font-weight: bold;
+}
+
+nav ul li.selected {
+	background-color: #c8b99c;
 }
