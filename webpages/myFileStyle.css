@@ -1,15 +1,16 @@
 h1,h2{
 	font-family: sans-serif;
-	color: #007e7e;
 }
 
 h1{
+	color: #007e7e;
 	border-bottom: thin dotted #888888;
 	font-size: 150%;
 }
 
 h2{
-	font-size: 130%;
+	color: #f07e7e;
+	font-size: 140%;
 }
 p {
 	font: Courier;
@@ -21,21 +22,24 @@ iframe{
 }
 body {
 	color:white;
-	background-color: #d2b48c;
+	background-image: url(/images/bacjak.jpeg);
 	font-family: Verdana, Monospace, Geneva, Arial, sans-serif;
 	font-size: small;
 	line-height: 1.6em;
-}
-#pictureCorner {
-	float: right;
 }
 p.references{
 	color: maroon;
 	/*border-bottom: 1px solid black;*/
 	font: Times New Roman;
-	text-align: center;
 }
 
+div#tableContainer {
+	display: table;
+	border-spacing: 10px;
+}
+div#tableRow {
+	display: table-row;
+}
 #highLight{
 	border-color:	#d2b48c;
 	border-width:	1px;
@@ -63,15 +67,25 @@ p.references{
 	border-width: 0px;
 	border-bottom-style: solid;
 	text-align: center;
-	margin: 0px 10px 0px 10px;
+	margin: 10px 10px 0px 10px;
 	height: 170px;
 }
 
 #practiceCorner {
-	float: right;
-	text-align: center;
+	display: table-cell;
+	margin: 0px 10px 10px 10px;
+	vertical-align: top;
 }
 
+#pictureCorner {
+	display: table-cell;
+	margin: 0px 10px 10px 10px;
+	vertical-align: top;
+}
+
+#others {
+	display: table-cell;
+}
 #footCorner {
 	background-color: #675c47;
 	color: #efe5d0;
@@ -80,6 +94,7 @@ p.references{
 	margin: 0px 10px 10px 10px;
 	font-size: 90%;
 }
+
 form.loginColumn{
 	border-color: #d2b48c;
 	border-width: 2px;
