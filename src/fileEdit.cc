@@ -70,7 +70,7 @@ char *parse(char *pathName)
 		return jsonType;
 	else if(strcmp(name,"pdf")==0)
 		return pdfType;
-	else if(strcmp(name,"ppt")==0)
+	else if(strcmp(name,"pptx")==0)
 		return pptType;
 	else
 		return htmlType;
@@ -270,16 +270,26 @@ char *getFileName(char *pathName)
 }
 int loadPicture(char *pathName)
 {//load the picture info into imagebuf and return its size
-	FILE *input,*output;
+	printf("in loadPicture with %s\n",pathName);
+	FILE *input,*output,*faultInput;
 	char c;
 	int i=0;
 	input=fopen(pathName,"rb");
 	output=fopen("trial.ico","w");
 	memset(imageBuffer,0,sizeof(imageBuffer ));
 	if(input==NULL){
-		sprintf(imageBuffer,"Can't find file %s\n",pathName);
-		printf("Can't find file %s\n",pathName);
-		return strlen(imageBuffer);
+		printf("NULL here\n");
+		faultInput=fopen("webpages/noFile.html","rb");
+		printf("Faultinput:%p\n",faultInput);
+		while(fscanf(faultInput,"%c",&c)!=EOF){
+			imageBuffer[i++]=c;
+		}
+		fclose(output);
+		fclose(faultInput);
+		return i;
+		//sprintf(imageBuffer,"Can't find file %s\n",pathName);
+		//printf("Can't find file %s\n",pathName);
+		//return strlen(imageBuffer);
 	}
 	while(fscanf(input,"%c",&c)!=EOF){
 		imageBuffer[i++]=c;

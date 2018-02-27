@@ -8,6 +8,9 @@ h1{
 	font-size: 150%;*/
 }
 
+h1.warning{
+	color: maroon;
+}
 h2{
 	color: #f07e7e;
 }

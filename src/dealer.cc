@@ -58,7 +58,7 @@ char* editMessage(char *input,int *type)
 			printf("In Loading file...\n");
 			char *fileName;
 			fileName=getFileName(temp);
-			strncpy(message,fileName,30);
+			strncpy(message,fileName,80);
 			break;
 		case LOGOUT:
 			//printf("In loging out\n");
@@ -66,7 +66,7 @@ char* editMessage(char *input,int *type)
 			state=logoutAccount(presentAccount());
 			if(state==1){
 				writeAccountFile(NULL);
-				getHTMLFile("./webpages/myFile.html",buffer);
+				getHTMLFile("./webpages/index.html",buffer);
 				return buffer;
 			}
 			break;
