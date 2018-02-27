@@ -7,6 +7,7 @@ static char message[100000];
 static char buffer[MAXSIZE];
 static bool toSwitch=false;
 extern int resultSize;
+extern httpInfo tempInfo;
 char* editMessage(char *input,int *type)
 {//for figuring out the specific message to answer the request
 	char *temp;
@@ -76,6 +77,11 @@ char* editMessage(char *input,int *type)
 		case SIGNUP:
 			//printf("To Enter with Signup\n");
 			getHTMLFile("./webpages/signup.html",buffer);
+			return buffer;
+		case POST_INFO:
+			if(tempInfo.serverInfoType==POST){
+				printf("BAM!\n");
+			}
 			return buffer;
 		default:
 			strncpy(message,"Unfinished!",sizeof(message ));
