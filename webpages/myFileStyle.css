@@ -18,10 +18,12 @@ p {
 
 iframe{
 	text-align: center;
+	height: 0px;
 }
 body {
 	color:white;
-	background-image: url(/images/bacjak.jpeg);
+	background-image: url(/images/background.jpg);
+	opacity: 20%;
 	font-family: Verdana, Monospace, Geneva, Arial, sans-serif;
 	font-size: small;
 	line-height: 1.6em;
@@ -81,14 +83,23 @@ img#trophy {
 	right: 0px;
 	position: relative;
 }
+
+p.hide {
+	color: white;
+	opacity: 0.01;
+}
 main {
+	background-color: #675c47;
+	opacity: 0.7;
 	display: table-cell;
 	margin: 0px 10px 10px 10px;
 	vertical-align: top;
-	width: 70%;
+	width: 0.7;
 }
 
 aside {
+	background-color: #1f3cff;
+	opacity: 0.7;
 	display: table-cell;
 	left: 500px;
 	margin: 0px 10px 10px 10px;
