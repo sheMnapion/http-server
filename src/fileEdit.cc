@@ -31,6 +31,8 @@ static char htmlType[]="Content-Type: text/html\r\n\r\n";
 static char cssType[]="Content-Type: text/css\r\n\r\n";
 static char jsType[]="Content-Type: application/js\r\n\r\n";
 static char jsonType[]="Content-Type: application/json\r\n\r\n";
+static char pdfType[]="Content-Type: application/pdf\r\n\r\n";
+static char pptType[]="Content-Type: application/x-ppt\r\n\r\n";
 //static char htmlType[]="\r\n";
 
 static char accountName[]="account";
@@ -66,6 +68,10 @@ char *parse(char *pathName)
 		return jsType;
 	else if(strcmp(name,"json")==0)
 		return jsonType;
+	else if(strcmp(name,"pdf")==0)
+		return pdfType;
+	else if(strcmp(name,"ppt")==0)
+		return pptType;
 	else
 		return htmlType;
 }
