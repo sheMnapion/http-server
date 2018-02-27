@@ -90,7 +90,7 @@ void accountLogin(char *loginName,char *loginPassword)
 {
 	int result=checkLogin(loginName,loginPassword);
 	if(result==0){
-		for(int i=0;i<usrNumbers;i++){
+		for(int i=0;i<10;i++){
 			if(strcmp(accessedHosts[i],presentHostInfo)==0){
 				accessedUsers[i]=accountNumber;
 			}
