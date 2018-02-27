@@ -104,7 +104,7 @@ char* analyzeInput(char *fullInput)
 		return ret;
 	}
 	else if(strncmp(fullInput,"POST",4)==0){
-		printf("In posting\n");
+		//printf("In posting\n");
 		char *usrNameStart,*passwordStart,*loginStart;
 		static char site[100];
 		memset(site,0,sizeof(site ));
@@ -115,7 +115,7 @@ char* analyzeInput(char *fullInput)
 			else
 				break;
 		}//this is unsafe
-		printf("Site:%s\n",site);
+		//printf("Site:%s\n",site);
 		usrNameStart=strstr(fullInput,accountName);
 		passwordStart=strstr(fullInput,passwordName);
 		loginStart=strstr(fullInput,loginName);
@@ -127,7 +127,7 @@ char* analyzeInput(char *fullInput)
 		usrName[i-strlen(accountName)-1]=usrNameStart[i];
 		for(int i=strlen(passwordName)+1;passwordStart+i<loginStart-1;i++)
 		usrPassword[i-strlen(passwordName)-1]=passwordStart[i];
-		printf("Username:%s\nPassword:%s\n",usrName,usrPassword);
+		//printf("Username:%s\nPassword:%s\n",usrName,usrPassword);
 		if(strcmp(site,"login")==0){
 			loginState=checkLogin(usrName,usrPassword);
 			printf("Login state:%d\n",loginState);
@@ -143,7 +143,7 @@ char* analyzeInput(char *fullInput)
 		}
 		else if(strcmp(site,"signup")==0){
 			loginState=checkSignup(usrName,usrPassword);
-			printf("Login state:%d\n",loginState);
+			//printf("Login state:%d\n",loginState);
 			if(loginState==-2)
 				return NULL;
 			else if(loginState==-1)
@@ -170,14 +170,14 @@ int judge(char *fullInput)
 {//for judging the func of input website from the first argument
 	if(fullInput==NULL)
 		return LOADFILE;
-	printf("Full input:%s in judge\n",fullInput);
+	//printf("Full input:%s in judge\n",fullInput);
 	static char tempInput[0x40];
 	memset(tempInput,0,sizeof(tempInput ));
 	strcpy(tempInput,fullInput);
 	//pausePlace.clear();
 	pauseSize=0;
 	int i;
-	printf("strlen of tempInput:%d\n",strlen(tempInput));
+	//printf("strlen of tempInput:%d\n",strlen(tempInput));
 	for(i=0;i<strlen(tempInput);i++){
 		if(tempInput[i]=='/'){
 			pausePlace[pauseSize++]=i;
@@ -185,7 +185,7 @@ int judge(char *fullInput)
 	}
 	pausePlace[pauseSize++]=i;
 	//pausePlace.push_back(i);
-	printf("Pauseplace.size:%d\n",pauseSize);
+	//printf("Pauseplace.size:%d\n",pauseSize);
 	if(pauseSize==1)
 		return LOGINRETURN;
 	for(i=0;i<pauseSize;i++){
@@ -201,7 +201,7 @@ int judge(char *fullInput)
 	}
 	else if(pauseSize==2||strlen(second)==0){
 		temp=getArgument(0,fullInput);
-		printf("To judge with temp:%s and strlen:%lu\n",temp,strlen(temp));
+		//printf("To judge with temp:%s and strlen:%lu\n",temp,strlen(temp));
 		//if(strlen(temp)==0)
 			//return ERROR;//unknown error occured
 		if(strcmp(temp,"hello")==0)
@@ -282,7 +282,7 @@ int loadPicture(char *pathName)
 		imageBuffer[i++]=c;
 		fprintf(output,"%c",c);
 	}
-	printf("I:%d\n",i);
+	//printf("I:%d\n",i);
 	fclose(input);
 	fclose(output);
 	return i;//strlen(imageBuffer);
@@ -347,9 +347,9 @@ char* writeSimpleResponse(char *msg)
 }
 char* writeFileResponse(char *pathName)
 {//for writing response from the path
-	printf("Path:%s\n",pathName);
+	//printf("Path:%s\n",pathName);
 	int size=loadPicture(pathName);
-	printf("Size:%d\n",size);
+	//printf("Size:%d\n",size);
 	char *stringStart=NULL,*contentType=NULL;
 	memset(Response,0,sizeof(Response ));
 	stringStart=&Response[0];
@@ -363,7 +363,7 @@ char* writeFileResponse(char *pathName)
 	writeString(stringStart,changeLine);
 	stringStart+=2;
 
-	printf("Done here\n");
+	//printf("Done here\n");
 	contentType=parse(pathName);
 	if(contentType==NULL)
 		contentType=htmlType;

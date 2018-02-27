@@ -10,7 +10,7 @@ extern int resultSize;
 char* editMessage(char *input,int *type)
 {//for figuring out the specific message to answer the request
 	char *temp;
-	printf("In editting %s as input in editMessage\n",input);
+	//printf("In editting %s as input in editMessage\n",input);
 	if(input==NULL)
 		return NULL;
 	if(strlen(input)==0)
@@ -20,7 +20,7 @@ char* editMessage(char *input,int *type)
 	memset(message,0,sizeof(message ));
 	memset(buffer,0,sizeof(buffer));
 	temp=input;
-	printf("Done here with input %s in editMessage\n",input);
+	//printf("Done here with input %s in editMessage\n",input);
 	switch(*type){
 		case HELLO:
 			strncpy(message,"Hello world!",12);
@@ -44,11 +44,11 @@ char* editMessage(char *input,int *type)
 			return createSimpleHtmlText("Gulu Hola");
 			break;
 		case BLOG:
-			printf("Enter Blog with switch:%d!\n",toSwitch);
+			//printf("Enter Blog with switch:%d!\n",toSwitch);
 			printf("Present Account:%s\n",presentAccount());
 			writeAccountFile(presentAccount());
 			//if(toSwitch)
-			getHTMLFile("./webpages/myFile.html",buffer);
+			getHTMLFile("./webpages/index.html",buffer);
 			//else
 			//	getHTMLFile("./myFile1.html",buffer);
 			//toSwitch=!toSwitch;
@@ -60,7 +60,7 @@ char* editMessage(char *input,int *type)
 			strncpy(message,fileName,30);
 			break;
 		case LOGOUT:
-			printf("In loging out\n");
+			//printf("In loging out\n");
 			int state;
 			state=logoutAccount(presentAccount());
 			if(state==1){
@@ -70,11 +70,11 @@ char* editMessage(char *input,int *type)
 			}
 			break;
 		case LOGIN:
-			printf("To Enter with login\n");
+			//printf("To Enter with login\n");
 			getHTMLFile("./webpages/login.html",buffer);
 			return buffer;
 		case SIGNUP:
-			printf("To Enter with Signup\n");
+			//printf("To Enter with Signup\n");
 			getHTMLFile("./webpages/signup.html",buffer);
 			return buffer;
 		default:
@@ -113,10 +113,10 @@ void assign()
 	dumbInfo[5]=senten6;
 	dumbInfo[6]=senten7;
 	dumbInfo[7]=senten8;
-	printf("Here in assign\n");
+	//printf("Here in assign\n");
 	for(int i=0;i<7;i++){
 		strcat(dumbInfo[0],dumbInfo[i+1]);
-		printf("Here in assign\n");
+		//printf("Here in assign\n");
 		//printf("for %dth turn:%s with %p\n",i,dumbInfo[0],dumbInfo[0]);
 	}
 	printf("%s\n",dumbInfo[0]);
@@ -126,12 +126,12 @@ char* createSimpleHtmlText(char *input)
 {//return a html text written with input
 	//sprintf(buffer,"Content-type:text/html\r\n");
 	memset(buffer,0,sizeof(buffer ));
-	printf("Here\n");
+	//printf("Here\n");
 	assign();
-	printf("Here\n");
+	//printf("Here\n");
 	strcpy(buffer,dumbInfo[0]);
-	printf("Here\n");
-	printf("Buffer:%s\n",buffer);
+	//printf("Here\n");
+	//printf("Buffer:%s\n",buffer);
 	return buffer;
 }
 
@@ -163,7 +163,7 @@ void getHTMLFile(const char *pathName,char *buf)
 void writeAccountFile(char *accountName)
 {
 	FILE *output=fopen("a.txt","w");
-	printf("Here\n");
+	//printf("Here\n");
 	if(output==NULL){
 		perror("Can't open a.txt!");
 		return;
