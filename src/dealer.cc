@@ -79,7 +79,7 @@ char* editMessage(char *input,int *type)
 			getHTMLFile("./webpages/signup.html",buffer);
 			return buffer;
 		case POST_INFO:
-			if(tempInfo.serverInfoType==POST){
+			if(tempInfo.requestType==POST){
 				printf("BAM!\n");
 			}
 			return buffer;
