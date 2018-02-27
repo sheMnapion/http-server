@@ -70,7 +70,7 @@ char* editMessage(char *input,int *type)
 			}
 			break;
 		case LOGIN:
-			//printf("To Enter with login\n");
+			printf("To Enter with login\n");
 			getHTMLFile("./webpages/login.html",buffer);
 			return buffer;
 		case SIGNUP:

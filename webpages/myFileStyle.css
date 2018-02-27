@@ -85,6 +85,7 @@ main {
 	display: table-cell;
 	margin: 0px 10px 10px 10px;
 	vertical-align: top;
+	width: 70%;
 }
 
 aside {

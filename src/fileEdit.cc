@@ -168,9 +168,11 @@ static int pauseSize;
 
 int judge(char *fullInput)
 {//for judging the func of input website from the first argument
+	printf("Full input:%s in judge\n",fullInput);
 	if(fullInput==NULL)
 		return LOADFILE;
-	//printf("Full input:%s in judge\n",fullInput);
+	if(strcmp(fullInput,"/webpages/index.html")==0)
+		return LOGIN;
 	static char tempInput[0x40];
 	memset(tempInput,0,sizeof(tempInput ));
 	strcpy(tempInput,fullInput);
@@ -276,6 +278,7 @@ int loadPicture(char *pathName)
 	memset(imageBuffer,0,sizeof(imageBuffer ));
 	if(input==NULL){
 		sprintf(imageBuffer,"Can't find file %s\n",pathName);
+		printf("Can't find file %s\n",pathName);
 		return strlen(imageBuffer);
 	}
 	while(fscanf(input,"%c",&c)!=EOF){
