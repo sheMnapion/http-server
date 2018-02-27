@@ -20,7 +20,6 @@
 		document.getElementById("myclock").innerHTML=inerHtml;//"<h4>Present Time: "+hh+":"+mm+":"+ss+"</h4>";
 	}
 	var loginInfo=document.getElementById("LoginColumn");
-	alert("HERE\n");
 	disptime();
 	//readFile();
 	var ifram=document.getElementById("iframe1");
