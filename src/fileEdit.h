@@ -22,7 +22,7 @@ int judge(char *);
 char* getArgument(size_t k,char *fullInput);
 char* getFileName(char *fileName);
 char* sparse(char *pathName);
-int loadPicture(char *pathName);
+int loadPicture(char *pathName,bool tryCompress);
 
 enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};
 #endif

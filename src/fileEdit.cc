@@ -22,6 +22,8 @@ static char name[20];
 static char usrName[30];
 static char usrPassword[30];
 
+static char gzipType[]="Content-Encoding: gzip\r\n";
+
 static char jpgType[]="Content-Type: image/jpg\r\n\r\n";
 static char jpegType[]="Content-Type: image/jpeg\r\n\r\n";
 static char pngType[]="Content-Type: image/png\r\n\r\n";
@@ -268,15 +270,33 @@ char *getFileName(char *pathName)
 		strcpy(fileName,pathName+1);
 	return fileName;
 }
-int loadPicture(char *pathName)
+int loadPicture(char *pathName,bool tryCompress)
 {//load the picture info into imagebuf and return its size
 	printf("in loadPicture with %s\n",pathName);
 	FILE *input,*output,*faultInput;
 	char c;
 	int i=0;
+	if(tryCompress){
+		static char after[]=".gz";
+		static char compressedPath[100];
+		memset(compressedPath,0,sizeof(compressedPath ));
+		strcpy(compressedPath,pathName);
+		strcat(compressedPath,after);
+		printf("Expanded path:%s\n",compressedPath);
+		FILE *compressedInput;
+		compressedInput=fopen(compressedPath,"rb");
+		memset(imageBuffer,0,sizeof(imageBuffer ));
+		if(compressedInput!=NULL){
+			printf("compressedInput:%p\n",compressedInput);
+			while(fscanf(compressedInput,"%c",&c)!=EOF){
+				imageBuffer[i++]=c;
+			}
+			fclose(compressedInput);
+			return i;
+		}
+	}
 	input=fopen(pathName,"rb");
 	output=fopen("trial.ico","w");
-	memset(imageBuffer,0,sizeof(imageBuffer ));
 	if(input==NULL){
 		printf("NULL here\n");
 		faultInput=fopen("webpages/noFile.html","rb");
@@ -338,6 +358,7 @@ char* writeSimpleResponse(char *msg)
 	writeString(stringStart,contentLength);
 	stringStart+=strlen(contentLength);
 	
+	
 	simplifiedItoa(lengtha,length);
 	writeString(stringStart,length);
 	stringStart+=strlen(length);
@@ -361,13 +382,24 @@ char* writeSimpleResponse(char *msg)
 char* writeFileResponse(char *pathName)
 {//for writing response from the path
 	//printf("Path:%s\n",pathName);
-	int size=loadPicture(pathName);
+	int size;
+	bool tryCompress=true;
+	if(strcmp(pathName,"a.txt")==0)
+		tryCompress=false;	
+	size=loadPicture(pathName,tryCompress);
 	//printf("Size:%d\n",size);
 	char *stringStart=NULL,*contentType=NULL;
 	memset(Response,0,sizeof(Response ));
 	stringStart=&Response[0];
+	
 	writeString(stringStart,guarantee);
 	stringStart+=strlen(guarantee);
+
+	if(tryCompress){
+		writeString(stringStart,gzipType);
+		stringStart+=strlen(gzipType);
+	}
+
 	writeString(stringStart,contentLength);
 	stringStart+=strlen(contentLength);
 	simplifiedItoa(size,length);

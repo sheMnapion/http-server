@@ -68,7 +68,7 @@ int main() {
 			finalResult=writeFileResponse(resulta);
 		else
 			finalResult=writeSimpleResponse(resulta);
-		//printf("Result:\n%s afer writ respons with length %d\n",finalResult,resultSize);
+		printf("Result:\n%s afer writ respons with length %d\n",finalResult,resultSize);
 		[[maybe_unused]]
 		int len=write(conn, finalResult, resultSize);
 		close(conn);
