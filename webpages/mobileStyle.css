@@ -25,7 +25,7 @@ iframe{
 }
 body {
 	color:white;
-	background-image: url(/images/background.jpg);
+	background-image: url(/images/bacjak.jpeg);
 	opacity: 20%;
 	font-family: Verdana, Monospace, Geneva, Arial, sans-serif;
 	font-size: small;
@@ -42,7 +42,7 @@ div#tableContainer {
 	border-spacing: 10px;
 }
 div#tableRow {
-	display: table-row;
+	display: table;
 }
 #highLight{
 	border-color:	#d2b48c;
@@ -93,19 +93,19 @@ p.hide {
 }
 main {
 	background-color: #675c47;
-	background-image: url(/images/bacjak.jpeg);
 	opacity: 0.8;
-	display: table-cell;
+	display: table;
 	margin: 0px 10px 10px 10px;
 	vertical-align: top;
-	width: 0.7;
+	width: 100%;
 }
 
 aside {
 	background-color: #1f3cff;
 	opacity: 0.7;
-	display: table-cell;
+	display: table;
 	left: 500px;
+	width: 100%;
 	margin: 0px 10px 10px 10px;
 	vertical-align: top;
 }
@@ -144,6 +144,7 @@ blockquote {
 	padding: 1em;
     background-color: #eaf3da;
 	border: 1px solid white;
+	text-align: center;
 }
 
 nav {
