@@ -1,6 +1,6 @@
-<h1>This is my http-server of LAC(161220062).</h1>
+<h1 color="maroon">This is my http-server of LAC(161220062).</h1>
 <h2>Keep Updating!</h2>
-<p>The server now supports some webpages and parses different files correctly. What's more, from the competition in Hong Kong, I added the gzip feature in the server so that it could answer request more quickly and efficiently.</p>
+<p color="maroon">The server now supports some webpages and parses different files correctly. What's more, from the competition in Hong Kong, I added the gzip feature in the server so that it could answer request more quickly and efficiently.</p>
 
 <p>what it can do:
 	<ul>
