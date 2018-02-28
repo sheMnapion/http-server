@@ -1,6 +1,6 @@
 <h1>This is my http-server of LAC(161220062).</h1>
-<h2>CRITICAL NOTE:</h2>
-<p>Sometimes the http server just can't answer the request of the explorer. If so, please restart the http-server by make clean and make run for several times and it will finally get connected.</p>
+<h2>Keep Updating!</h2>
+<p>The server now supports some webpages and parses different files correctly. What's more, from the competition in Hong Kong, I added the gzip feature in the server so that it could answer request more quickly and efficiently.</p>
 
 <p>what it can do:
 	<ul>
