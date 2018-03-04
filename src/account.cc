@@ -31,11 +31,11 @@ int checkLogin(char *loginName,char *loginPassword)
 		if(strcmp(users[i].usrName,loginName)==0){
 			if(strcmp(users[i].usrPassword,loginPassword)==0){
 				accountNumber=i;
-				printf("Match!\n");
+				//printf("Match!\n");
 				return 0;
 			}
 			else{
-				printf("Wrong password!\n");
+				//printf("Wrong password!\n");
 				return -1;
 			}
 		}

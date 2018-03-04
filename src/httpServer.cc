@@ -14,7 +14,7 @@ httpInfo analyzeExplorer(char *buf)
 	strPointer httpEditionPointer,hostPointer,userAgentPointer,acceptPointer;
 	char *bufCopy;
 	bufCopy=buf;
-	printf("Buf:\n%s\n",buf);
+	//printf("Buf:\n%s\n",buf);
 	clear(&innerHttpInfo);
 	innerHttpInfo.isValid=true;
 	if(strncmp(bufCopy,"POST",4)==0){
@@ -43,12 +43,12 @@ httpInfo analyzeExplorer(char *buf)
 		innerHttpInfo.isValid=false;
 		return innerHttpInfo;
 	}
-	printf("INNER SHOW:\n");
-	show(innerHttpInfo);
+	//printf("INNER SHOW:\n");
+	//show(innerHttpInfo);
 	hostPointer=strstr(bufCopy,"Host: ");
 	userAgentPointer=strstr(bufCopy,"User-Agent: ");
 	acceptPointer=strstr(bufCopy,"Accept: ");
-	printf("Bufcopy:%p hostPointer:%p userAgent:%p acceptPointer:%p",bufCopy,hostPointer,userAgentPointer,acceptPointer);
+	//printf("Bufcopy:%p hostPointer:%p userAgent:%p acceptPointer:%p",bufCopy,hostPointer,userAgentPointer,acceptPointer);
 	if(hostPointer==NULL||userAgentPointer==NULL||acceptPointer==NULL){
 		innerHttpInfo.isValid=false;
 		return innerHttpInfo;

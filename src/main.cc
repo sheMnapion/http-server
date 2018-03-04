@@ -2,6 +2,7 @@
 #include "dealer.h"
 #include "account.h"
 #include "httpServer.h"
+#include <time.h>
 #define READ_LENGTH 100
 int servfd = -1;
 httpInfo tempInfo;
@@ -43,6 +44,8 @@ int main() {
 	memset(buf,0,sizeof(buf ));
 	while((conn = accept(servfd, (struct sockaddr*)&client_addr, &length)) != -1) {
 		printf("Accepted\n");
+		time_t start,end;
+		start=time(NULL);
 		char *tempo,*resulta,*finalResult,*bufPointer;
 		bufPointer=buf;
 		ssize_t readLength=read(conn,(void *)bufPointer,READ_LENGTH);
@@ -52,8 +55,8 @@ int main() {
 		}
 		tempInfo=analyzeExplorer(buf);
 		show(tempInfo);
-		printf("Buf from connection:%s\nlength:%lu time:%d\n",buf,strlen(buf),connectTime++);
 		tempo=analyzeInput(buf);
+		printf("Buf from connection:%s\nlength:%lu time:%d\n\n",buf,strlen(buf),connectTime++);
 		//printf("Temp:%s\n",tempo);
 		if(strlen(buf)==0){
 			write(conn,unacceptedInfo,strlen(unacceptedInfo ));
@@ -68,12 +71,14 @@ int main() {
 			finalResult=writeFileResponse(resulta);
 		else
 			finalResult=writeSimpleResponse(resulta);
-		printf("Result:\n%s afer writ respons with length %d\n",finalResult,resultSize);
+		//printf("Result:\n%s afer writ respons with length %d\n",finalResult,resultSize);
 		[[maybe_unused]]
 		int len=write(conn, finalResult, resultSize);
 		close(conn);
-		showPresentAccounts();
-		showPresentAccessedAccounts();
+		end=time(NULL);
+		printf("This request costs you %.3lf seconds.\n\n",difftime(end,start));
+		//showPresentAccounts();
+		//showPresentAccessedAccounts();
 	}
 
 	return 0;

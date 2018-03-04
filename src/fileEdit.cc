@@ -53,7 +53,7 @@ char *parse(char *pathName)
 	memset(name,0,sizeof(name ));
 	for(size_t i=poz;i<strlen(pathName);i++)
 		name[i-poz]=pathName[i+1];
-	printf("Name:%s\n",name);
+	//printf("Name:%s\n",name);
 	if(strcmp(name,"jpg")==0)
 		return jpgType;
 	else if(strcmp(name,"jpeg")==0)
@@ -132,7 +132,7 @@ char* analyzeInput(char *fullInput)
 		//printf("Username:%s\nPassword:%s\n",usrName,usrPassword);
 		if(strcmp(site,"login")==0){
 			loginState=checkLogin(usrName,usrPassword);
-			printf("Login state:%d\n",loginState);
+			//printf("Login state:%d\n",loginState);
 			accountLogin(usrName,usrPassword);
 			if(loginState==0)
 				return usrLogin;
@@ -170,7 +170,7 @@ static int pauseSize;
 
 int judge(char *fullInput)
 {//for judging the func of input website from the first argument
-	printf("Full input:%s in judge\n",fullInput);
+	//printf("Full input:%s in judge\n",fullInput);
 	if(fullInput==NULL)
 		return LOADFILE;
 	if(strcmp(fullInput,"/webpages/index.html")==0)
@@ -192,10 +192,8 @@ int judge(char *fullInput)
 	//printf("Pauseplace.size:%d\n",pauseSize);
 	if(pauseSize==1)
 		return LOGINRETURN;
-	for(i=0;i<pauseSize;i++){
-		printf("%d ",pausePlace[i]);
-	}
-	printf("\n");
+		//printf("%d ",pausePlace[i]);
+	//printf("\n");
 
 	char *temp,*second;
 	temp=getArgument(0,fullInput);
@@ -270,37 +268,38 @@ char *getFileName(char *pathName)
 		strcpy(fileName,pathName+1);
 	return fileName;
 }
-int loadPicture(char *pathName,bool tryCompress)
+int loadPicture(char *pathName,bool *tryCompress)
 {//load the picture info into imagebuf and return its size
-	printf("in loadPicture with %s\n",pathName);
+	//printf("in loadPicture with %s\n",pathName);
 	FILE *input,*output,*faultInput;
 	char c;
 	int i=0;
-	if(tryCompress){
+	if(*tryCompress){
 		static char after[]=".gz";
 		static char compressedPath[100];
 		memset(compressedPath,0,sizeof(compressedPath ));
 		strcpy(compressedPath,pathName);
 		strcat(compressedPath,after);
-		printf("Expanded path:%s\n",compressedPath);
+		//printf("Expanded path:%s\n",compressedPath);
 		FILE *compressedInput;
 		compressedInput=fopen(compressedPath,"rb");
 		memset(imageBuffer,0,sizeof(imageBuffer ));
 		if(compressedInput!=NULL){
-			printf("compressedInput:%p\n",compressedInput);
+			//printf("compressedInput:%p\n",compressedInput);
 			while(fscanf(compressedInput,"%c",&c)!=EOF){
 				imageBuffer[i++]=c;
 			}
 			fclose(compressedInput);
 			return i;
 		}
+		*tryCompress=false;
 	}
 	input=fopen(pathName,"rb");
 	output=fopen("trial.ico","w");
 	if(input==NULL){
-		printf("NULL here\n");
+		//printf("NULL here\n");
 		faultInput=fopen("webpages/noFile.html","rb");
-		printf("Faultinput:%p\n",faultInput);
+		//printf("Faultinput:%p\n",faultInput);
 		while(fscanf(faultInput,"%c",&c)!=EOF){
 			imageBuffer[i++]=c;
 		}
@@ -386,7 +385,7 @@ char* writeFileResponse(char *pathName)
 	bool tryCompress=true;
 	if(strcmp(pathName,"a.txt")==0)
 		tryCompress=false;	
-	size=loadPicture(pathName,tryCompress);
+	size=loadPicture(pathName,&tryCompress);
 	//printf("Size:%d\n",size);
 	char *stringStart=NULL,*contentType=NULL;
 	memset(Response,0,sizeof(Response ));

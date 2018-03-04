@@ -41,12 +41,12 @@ char* editMessage(char *input,int *type)
 			}
 			break;
 		case BETTERHELLO:
-			printf("A better hello!\n");
+			//printf("A better hello!\n");
 			return createSimpleHtmlText("Gulu Hola");
 			break;
 		case BLOG:
 			//printf("Enter Blog with switch:%d!\n",toSwitch);
-			printf("Present Account:%s\n",presentAccount());
+			//printf("Present Account:%s\n",presentAccount());
 			writeAccountFile(presentAccount());
 			//if(toSwitch)
 			getHTMLFile("./webpages/index.html",buffer);
@@ -55,7 +55,7 @@ char* editMessage(char *input,int *type)
 			//toSwitch=!toSwitch;
 			return buffer;
 		case LOADFILE:
-			printf("In Loading file...\n");
+			//printf("In Loading file...\n");
 			char *fileName;
 			fileName=getFileName(temp);
 			strncpy(message,fileName,80);
@@ -71,7 +71,7 @@ char* editMessage(char *input,int *type)
 			}
 			break;
 		case LOGIN:
-			printf("To Enter with login\n");
+			//printf("To Enter with login\n");
 			getHTMLFile("./webpages/login.html",buffer);
 			return buffer;
 		case SIGNUP:
@@ -80,7 +80,8 @@ char* editMessage(char *input,int *type)
 			return buffer;
 		case POST_INFO:
 			if(tempInfo.requestType==POST){
-				printf("BAM!\n");
+				//printf("BAM!\n");
+				;
 			}
 			return buffer;
 		default:

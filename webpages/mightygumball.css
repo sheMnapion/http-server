@@ -1,0 +1,12 @@
+body {
+	background-color: yellow;
+	font-family: sans-serif;
+}
+
+div.saleItem:nth-of-type(odd) {
+	background-color: green;
+}
+
+div.saleItem:nth-of-type(even){
+	background-color: red;
+}

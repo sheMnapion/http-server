@@ -20,15 +20,11 @@
 		document.getElementById("myclock").innerHTML=inerHtml;//"<h4>Present Time: "+hh+":"+mm+":"+ss+"</h4>";
 	}
 	//readFile();
-	function logInControl(){
+	function loginControl(){
 		var loginInfo=document.getElementById("LoginColumn");
 		var ifram=document.getElementById("iframe1");
-		alert("Surprise!");
-	//alert(ifram.align);
 		var iframContent=document.getElementById("iframe1").contentDocument.documentElement;
-	//alert(iframContent);
 		var txtValue=iframContent.innerText;
-	//alert(txtValue);
 		if(txtValue.length==0){
 			loginInfo.innerHTML="";
 			loginInfo.innerHTML+="<p>";
@@ -38,8 +34,9 @@
 		else{
 			loginInfo.innerHTML+="<p>You login as <em>"+txtValue+"</em> <a href=\"/logout\">log out</a></p>";
 		}
+		setInterval(disptime,300);
 	}
 	
 	disptime();
-	logInControl();
 	var findPic=document.getElementById("starNight");
+	window.onload=loginControl;
