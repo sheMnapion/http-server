@@ -292,6 +292,21 @@ int loadPicture(char *pathName,bool *tryCompress)
 			fclose(compressedInput);
 			return i;
 		}
+		int rc=fork();
+		if(rc==0){
+			printf("In child fork %d.\n",getpid());
+			/*char *args[2];
+			args[0]="pwd";
+			args[1]=NULL;*/
+			char *args[6];
+			args[0]="gzip";
+			args[1]="-c";
+			args[2]=pathName;
+			args[3]=">";
+			args[4]=compressedPath;
+			args[5]=NULL;
+			execvp(args[0],args);
+		}
 		*tryCompress=false;
 	}
 	input=fopen(pathName,"rb");
