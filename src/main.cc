@@ -15,7 +15,7 @@ void sigint_handler(int signum) {
 	exit(0);
 }
 
-int main() {
+int main(int argc,char *argv[]) {
 	init();
 	servfd = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -27,11 +27,29 @@ int main() {
 	servaddr.sin_port = htons(8080);
 	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 
+	bool tryGzip=true;
 	int bindTimes=1;
 	int bindResult=bind(servfd, (struct sockaddr*)&servaddr, sizeof(servaddr));
+	if(argv[1]==nullptr){
+		tryGzip=false;
+	}
+	else if(strcmp(argv[1],"GZIP_ON")==0){
+		tryGzip=true;
+	}
+	else if(strcmp(argv[1],"GZIP_OFF")==0){
+		tryGzip=false;
+	}
+	else{
+		printf("Unknown command %s! Server exited\n",argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	while(bindResult<0){
 		bindResult=bind(servfd, (struct sockaddr*)&servaddr, sizeof(servaddr));
 		bindTimes++;
+	}
+	printf("Argc:%d\n",argc);
+	for(int i=0;i<3;i++){
+		printf("Arg #%d:%s\n",i+1,argv[i]);
 	}
 	printf("Bind done after %d times!\n",bindTimes);
 	listen(servfd, 50);
@@ -68,7 +86,7 @@ int main() {
 		prepare(tempInfo);
 		resulta=editMessage(tempo,&type);
 		if(type==LOADFILE)
-			finalResult=writeFileResponse(resulta);
+			finalResult=writeFileResponse(resulta,tryGzip);
 		else
 			finalResult=writeSimpleResponse(resulta);
 		//printf("Result:\n%s afer writ respons with length %d\n",finalResult,resultSize);

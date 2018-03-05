@@ -2,6 +2,7 @@
 #include "account.h"
 #include <string.h>
 #include <vector>
+#include <sys/wait.h>
 #define MAXN 0x400000
 using namespace std;
 
@@ -275,39 +276,42 @@ int loadPicture(char *pathName,bool *tryCompress)
 	char c;
 	int i=0;
 	if(*tryCompress){
-		static char after[]=".gz";
-		static char compressedPath[100];
-		memset(compressedPath,0,sizeof(compressedPath ));
-		strcpy(compressedPath,pathName);
-		strcat(compressedPath,after);
-		//printf("Expanded path:%s\n",compressedPath);
-		FILE *compressedInput;
-		compressedInput=fopen(compressedPath,"rb");
-		memset(imageBuffer,0,sizeof(imageBuffer ));
-		if(compressedInput!=NULL){
-			//printf("compressedInput:%p\n",compressedInput);
-			while(fscanf(compressedInput,"%c",&c)!=EOF){
-				imageBuffer[i++]=c;
+		input=fopen(pathName,"rb");
+		if(input!=NULL){
+			static char after[]=".gz";
+			static char compressedPath[100];
+			memset(compressedPath,0,sizeof(compressedPath ));
+			strcpy(compressedPath,pathName);
+			strcat(compressedPath,after);
+			//printf("Expanded path:%s\n",compressedPath);
+			int rc=fork();
+			if(rc==0){
+				printf("In child fork %d.\n",getpid());
+				char *args[5];
+				args[0]="gzip";
+				args[1]="-k";
+				args[2]="-f";
+				args[3]=pathName;
+				args[4]=NULL;
+				execvp(args[0],args);
 			}
-			fclose(compressedInput);
-			return i;
+			int wc=wait(NULL);
+			printf("Visit this line here veth %d\n",wc);
+			FILE *compressedInput;
+			compressedInput=fopen(compressedPath,"rb");
+			memset(imageBuffer,0,sizeof(imageBuffer ));
+			if(compressedInput!=NULL){
+				//printf("compressedInput:%p\n",compressedInput);
+				while(fscanf(compressedInput,"%c",&c)!=EOF){
+					imageBuffer[i++]=c;
+				}
+				fclose(compressedInput);
+				printf("Done here afer compressing\n");
+				return i;
+			}
+			assert(0);//must have compressed
+			*tryCompress=false;
 		}
-		int rc=fork();
-		if(rc==0){
-			printf("In child fork %d.\n",getpid());
-			/*char *args[2];
-			args[0]="pwd";
-			args[1]=NULL;*/
-			char *args[6];
-			args[0]="gzip";
-			args[1]="-c";
-			args[2]=pathName;
-			args[3]=">";
-			args[4]=compressedPath;
-			args[5]=NULL;
-			execvp(args[0],args);
-		}
-		*tryCompress=false;
 	}
 	input=fopen(pathName,"rb");
 	output=fopen("trial.ico","w");
@@ -393,13 +397,15 @@ char* writeSimpleResponse(char *msg)
 	//printf("Response:\n%s\n",Response);
 	return Response;
 }
-char* writeFileResponse(char *pathName)
+char* writeFileResponse(char *pathName,bool tryGzip)
 {//for writing response from the path
 	//printf("Path:%s\n",pathName);
 	int size;
 	bool tryCompress=true;
 	if(strcmp(pathName,"a.txt")==0)
 		tryCompress=false;	
+	if(!tryGzip)
+		tryCompress=false;
 	size=loadPicture(pathName,&tryCompress);
 	//printf("Size:%d\n",size);
 	char *stringStart=NULL,*contentType=NULL;

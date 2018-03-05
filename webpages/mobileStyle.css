@@ -1,0 +1,178 @@
+h1,h2{
+	font-family: sans-serif;
+}
+
+h1{
+	color: #007e7e;
+	/*border-bottom: thin dotted #888888;
+	font-size: 150%;*/
+}
+
+h1.warning{
+	color: maroon;
+}
+h2{
+	color: #f07e7e;
+}
+p {
+	font: Courier;
+	font-weight: bold;
+}
+
+iframe{
+	text-align: center;
+	height: 0px;
+}
+body {
+	color:white;
+	background-image: url(/images/bacjak.jpeg);
+	opacity: 20%;
+	font-family: Verdana, Monospace, Geneva, Arial, sans-serif;
+	font-size: small;
+	line-height: 1.6em;
+}
+p.references{
+	color: maroon;
+	/*border-bottom: 1px solid black;*/
+	font: Times New Roman;
+}
+
+div#tableContainer {
+	display: table;
+	border-spacing: 10px;
+	width: 100%;
+}
+div#tableRow {
+	border-spacing: 0px;
+	display: table;
+}
+#highLight{
+	border-color:	#d2b48c;
+	border-width:	1px;
+	border-style:	dashed;
+	background-color: #a7cece;
+	padding: 25px;
+	padding-left: 80px;
+	margin: 30px;
+	margin-right: 250px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #444444;
+	line-height: 1.9em;
+	background-image: url(/images/fivestar.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 0px;
+}
+
+header {
+	background-color: #675c47;
+	border-color: #d2b40c;
+	border-width: 0px;
+	border-bottom-style: solid;
+	/*text-align: center;*/
+	margin: 10px 10px 10px 10px;
+	height: 170px;
+}
+img#trophy {
+	top: 30px;
+	right: 30px;
+	opacity: 0.09;
+	height: 170px;
+	float: left;
+}
+
+#trophy1{ 
+	right: 0px;
+	position: relative;
+}
+
+p.hide {
+	color: white;
+	opacity: 0.01;
+}
+main {
+	background-color: #675c47;
+	opacity: 0.8;
+	display: table;
+	margin: 0px 10px 10px 10px;
+	vertical-align: top;
+	width: 100%;
+	border-radius: 25px;
+}
+
+aside {
+	background-color: #1f3cff;
+	opacity: 0.7;
+	display: table;
+	left: 500px;
+	width: 100%;
+	margin: 0px 10px 10px 10px;
+	vertical-align: top;
+	border-radius: 25px;
+}
+
+#others {
+	display: table-cell;
+}
+footer {
+	background-color: #675c47;
+	color: #efe5d0;
+	text-align: center;
+	padding: 15px;
+	margin: 0px 10px 10px 10px;
+	font-size: 90%;
+}
+
+form.loginColumn{
+	border-color: #d2b48c;
+	border-width: 2px;
+	border-style: dashed;
+	background-image: url(/images/login.jpeg);
+	color: black;
+	font-family: Georgia, "Times New Roman", serif;
+	text-align: center;
+	padding-top: 90px;
+	padding-bottom: 90px;
+	margin: 90px;
+	font-size: 150%;
+	border-radius: 25px;
+}
+blockquote {
+	font-style: italic;
+}
+
+#starNight{
+	padding: 1em;
+    background-color: #eaf3da;
+	border: 1px solid white;
+	text-align: center;
+}
+
+nav {
+	background-color: #efe5d0;
+	margin: 10px 10px 0px 10px;
+}
+nav ul {
+	margin: 0px;
+	list-style-type: none;
+	padding: 5px 0px 5px 0px;
+}
+
+nav ul li{
+	display: inline;
+	padding: 5px 10px 5px 10px;
+}
+
+nav ul li a:link, nav ul li a:visited {
+	color: #954b4b;
+	margin: 0px;
+	border-bottom: none;
+	font-weight: bold;
+}
+
+nav ul li.selected {
+	background-color: #c8b99c;
+}

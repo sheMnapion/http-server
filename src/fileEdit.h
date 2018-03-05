@@ -17,7 +17,7 @@ void writeString(char *,char *);
 char* analyzeInput(char *fullInput);
 void simplifiedItoa(size_t length,char *dst);
 char* writeSimpleResponse(char *);
-char* writeFileResponse(char *);
+char* writeFileResponse(char *,bool );
 int judge(char *);
 char* getArgument(size_t k,char *fullInput);
 char* getFileName(char *fileName);
