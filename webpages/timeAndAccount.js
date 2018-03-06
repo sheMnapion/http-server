@@ -35,6 +35,16 @@
 			loginInfo.innerHTML+="<p>You login as <em>"+txtValue+"</em> <a href=\"/logout\">log out</a></p>";
 		}
 		setInterval(disptime,300);
+		var canvas=document.getElementById("lookWhatIDrew");
+		if(canvas==null)
+			return;
+		if(canvas.getContext){
+			var context=canvas.getContext("2d");
+			context.fillRect(10,10,100,100);
+		}
+		else{
+			alert("Oops, your explorer doesn't support canvas element!");
+		}
 	}
 	
 	disptime();

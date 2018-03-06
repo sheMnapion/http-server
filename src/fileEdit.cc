@@ -312,6 +312,26 @@ int loadPicture(char *pathName,bool *tryCompress)
 			assert(0);//must have compressed
 			*tryCompress=false;
 		}
+		else{
+			int rc=fork();
+			if(rc==0){
+				printf("In child fork %d.\n",getpid());
+				char *args[5];
+				args[0]="gzip";
+				args[1]="-k";
+				args[2]="-f";
+				args[3]="webpages/noFile.html";
+				args[4]=NULL;
+				execvp(args[0],args);
+			}
+			int wc=wait(NULL);
+			faultInput=fopen("webpages/noFile.html.gz","rb");
+			while(fscanf(faultInput,"%c",&c)!=EOF){
+				imageBuffer[i++]=c;
+			}
+			fclose(faultInput);
+			return i;
+		}
 	}
 	input=fopen(pathName,"rb");
 	output=fopen("trial.ico","w");
