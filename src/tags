@@ -1,0 +1,160 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACCOUNT_H	account.h	2;"	d
+ADD	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+BETTERHELLO	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+BLOG	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+DEALER_H	dealer.h	2;"	d
+DEFAULT	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+ERROR	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+FILEEDIT_H	fileEdit.h	2;"	d
+GET	httpServer.h	/^enum serverInfoType {GET,POST};$/;"	e	enum:serverInfoType
+HELLO	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+HTTPSERVER_H	httpServer.h	2;"	d
+Info	httpServer.h	/^struct Info{$/;"	s
+LOADFILE	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+LOGIN	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+LOGINRETURN	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+LOGOUT	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+MAXN	fileEdit.c	6;"	d	file:
+MAXSIZE	dealer.c	5;"	d	file:
+MAXUSERSIZE	account.h	7;"	d
+POST	httpServer.h	/^enum serverInfoType {GET,POST};$/;"	e	enum:serverInfoType
+POST_INFO	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+READ_LENGTH	main.c	7;"	d	file:
+Response	fileEdit.c	/^static char Response[MAXN];$/;"	v	file:
+SIGNUP	fileEdit.h	/^enum {ADD,HELLO,POST_INFO,SIGNUP,BLOG,BETTERHELLO,ERROR,LOGIN,LOGOUT,LOGINRETURN,DEFAULT,LOADFILE};$/;"	e	enum:__anon1
+User	account.h	/^}User;$/;"	t	typeref:struct:user
+accessedHosts	account.c	/^static char accessedHosts[10][100];$/;"	v	file:
+accessedUsers	account.c	/^static int accessedUsers[10];$/;"	v	file:
+accountLogin	account.c	/^void accountLogin(char *loginName,char *loginPassword)$/;"	f
+accountName	fileEdit.c	/^static char accountName[]="account";$/;"	v	file:
+accountNumber	account.c	/^int accountNumber;$/;"	v
+addAccount	account.c	/^void addAccount(char *loginName,char *loginPassword)$/;"	f
+analyzeExplorer	httpServer.c	/^httpInfo analyzeExplorer(char *buf)$/;"	f
+analyzeInput	fileEdit.c	/^char* analyzeInput(char *fullInput)$/;"	f
+answerRequest	main.c	/^pthread_cond_t answerRequest,receiveRequest;$/;"	v
+argument	fileEdit.c	/^static char argument[300];$/;"	v	file:
+assign	dealer.c	/^void assign()$/;"	f
+buf	main.c	/^static char buf[20480];$/;"	v	file:
+bufPointer	main.c	/^char *tempo,*resulta,*finalResult,*bufPointer;$/;"	v
+buffer	dealer.c	/^static char buffer[MAXSIZE];$/;"	v	file:
+changeLine	fileEdit.c	/^static char changeLine[]="\\r\\n";$/;"	v	file:
+checkLogin	account.c	/^int checkLogin(char *loginName,char *loginPassword)$/;"	f
+checkSignup	account.c	/^int checkSignup(char *signupName,char *signupPassword)$/;"	f
+clear	httpServer.c	/^void clear(httpInfo *information)$/;"	f
+contentLength	fileEdit.c	/^static char contentLength[]="Content-Length: ";$/;"	v	file:
+createSimpleHtmlText	dealer.c	/^char* createSimpleHtmlText(char *input)$/;"	f
+cssType	fileEdit.c	/^static char cssType[]="Content-Type: text\/css\\r\\n\\r\\n";$/;"	v	file:
+deQueue	main.c	/^int deQueue()$/;"	f
+dumbInfo	dealer.c	/^static char *dumbInfo[8];$/;"	v	file:
+editMessage	dealer.c	/^char* editMessage(char *input,int *type)$/;"	f
+enQueue	main.c	/^void enQueue(int fd)$/;"	f
+errorMessage	fileEdit.c	/^static char errorMessage[]="Unexpected Error Occured!Please Wait";$/;"	v	file:
+fdQueue	main.c	/^int fdQueue[queueSize];$/;"	v
+finalResult	main.c	/^char *tempo,*resulta,*finalResult,*bufPointer;$/;"	v
+followSPrintf	dealer.c	/^void followSPrintf(char *src,char *str)$/;"	f
+getArgument	fileEdit.c	/^char *getArgument(size_t k,char *fullInput)$/;"	f
+getFileName	fileEdit.c	/^char *getFileName(char *pathName)$/;"	f
+getHTMLFile	dealer.c	/^void getHTMLFile(const char *pathName,char *buf)$/;"	f
+getInfo	httpServer.h	/^		char getInfo[100];$/;"	m	union:Info::__anon2
+gifType	fileEdit.c	/^static char gifType[]="Content-Type: image\/gif\\r\\n\\r\\n";$/;"	v	file:
+guarantee	fileEdit.c	/^static char guarantee[]="HTTP\/1.1 200 OK\\r\\n";$/;"	v	file:
+gzipType	fileEdit.c	/^static char gzipType[]="Content-Encoding: gzip\\r\\n";$/;"	v	file:
+hostInfo	httpServer.h	/^	char hostInfo[100];$/;"	m	struct:Info
+ht_client	main.c	/^void* ht_client(void *args)$/;"	f
+ht_server	main.c	/^void* ht_server(void *args)$/;"	f
+htmlType	fileEdit.c	/^static char htmlType[]="Content-Type: text\/html\\r\\n\\r\\n";$/;"	v	file:
+httpInfo	httpServer.h	/^typedef struct Info httpInfo;$/;"	t	typeref:struct:Info
+icoType	fileEdit.c	/^static char icoType[]="Content-Type: image\/ico\\r\\n\\r\\n";$/;"	v	file:
+id1	main.c	/^pthread_t id1,id2,id3,id4;$/;"	v
+id2	main.c	/^pthread_t id1,id2,id3,id4;$/;"	v
+id3	main.c	/^pthread_t id1,id2,id3,id4;$/;"	v
+id4	main.c	/^pthread_t id1,id2,id3,id4;$/;"	v
+imageBuffer	fileEdit.c	/^static char imageBuffer[MAXN];$/;"	v	file:
+init	account.c	/^void init()$/;"	f
+initServer	main.c	/^void initServer(int argc,char *argv[])$/;"	f
+initThreads	main.c	/^void initThreads()$/;"	f
+innerHttpInfo	httpServer.c	/^static httpInfo innerHttpInfo;$/;"	v	file:
+isEmpty	main.c	/^bool isEmpty(){return queueFrontPointer==queueEndPointer;}$/;"	f
+isFull	main.c	/^bool isFull()$/;"	f
+isValid	httpServer.h	/^	bool isValid;$/;"	m	struct:Info
+jpegType	fileEdit.c	/^static char jpegType[]="Content-Type: image\/jpeg\\r\\n\\r\\n";$/;"	v	file:
+jpgType	fileEdit.c	/^static char jpgType[]="Content-Type: image\/jpg\\r\\n\\r\\n";$/;"	v	file:
+jsType	fileEdit.c	/^static char jsType[]="Content-Type: application\/js\\r\\n\\r\\n";$/;"	v	file:
+jsonType	fileEdit.c	/^static char jsonType[]="Content-Type: application\/json\\r\\n\\r\\n";$/;"	v	file:
+judge	fileEdit.c	/^int judge(char *fullInput)$/;"	f
+length	fileEdit.c	/^static char length[200];$/;"	v	file:
+loadPicture	fileEdit.c	/^int loadPicture(char *pathName,bool *tryCompress)$/;"	f
+lock	main.c	/^pthread_mutex_t lock;$/;"	v
+loginName	fileEdit.c	/^static char loginName[]="login=";$/;"	v	file:
+logoutAccount	account.c	/^int logoutAccount(char *accountName)$/;"	f
+main	main.c	/^int main(int argc,char *argv[]) {$/;"	f
+message	dealer.c	/^static char message[100000];$/;"	v	file:
+name	fileEdit.c	/^static char name[20];$/;"	v	file:
+parse	fileEdit.c	/^char *parse(char *pathName)$/;"	f
+passwordName	fileEdit.c	/^static char passwordName[]="passWord";$/;"	v	file:
+pausePlace	fileEdit.c	/^static int pausePlace[100];\/\/used to store break places$/;"	v	file:
+pauseSize	fileEdit.c	/^static int pauseSize;$/;"	v	file:
+pdfType	fileEdit.c	/^static char pdfType[]="Content-Type: application\/pdf\\r\\n\\r\\n";$/;"	v	file:
+pngType	fileEdit.c	/^static char pngType[]="Content-Type: image\/png\\r\\n\\r\\n";$/;"	v	file:
+postInfo	httpServer.h	/^		char postInfo[100];$/;"	m	union:Info::__anon2
+pptType	fileEdit.c	/^static char pptType[]="Content-Type: application\/x-ppt\\r\\n\\r\\n";$/;"	v	file:
+prepare	account.c	/^void prepare(httpInfo serverInfo)$/;"	f
+presentAccount	account.c	/^char *presentAccount()$/;"	f
+presentAgentInfo	account.c	/^static char presentAgentInfo[1000];$/;"	v	file:
+presentHostInfo	account.c	/^static char presentHostInfo[100];$/;"	v	file:
+presentHostNumber	account.c	/^int presentHostNumber;$/;"	v
+queueEndPointer	main.c	/^int queueFrontPointer,queueEndPointer;$/;"	v
+queueFrontPointer	main.c	/^int queueFrontPointer,queueEndPointer;$/;"	v
+queueNumber	main.c	/^int queueNumber=0;$/;"	v
+queueSize	main.c	/^const int queueSize=10;$/;"	v
+receiveRequest	main.c	/^pthread_cond_t answerRequest,receiveRequest;$/;"	v
+requestType	httpServer.h	/^	serverInfoType requestType;$/;"	m	struct:Info
+resultSize	main.c	/^int resultSize;$/;"	v
+resulta	main.c	/^char *tempo,*resulta,*finalResult,*bufPointer;$/;"	v
+senten1	dealer.c	/^static char senten1[]="<html>\\n";$/;"	v	file:
+senten2	dealer.c	/^static char senten2[]="<head>\\n";$/;"	v	file:
+senten3	dealer.c	/^static char senten3[]="<title>Better Hello World--Under HTML<\/title>\\n";$/;"	v	file:
+senten4	dealer.c	/^static char senten4[]="<\/head>\\n";$/;"	v	file:
+senten5	dealer.c	/^static char senten5[]="<body>\\n";$/;"	v	file:
+senten6	dealer.c	/^static char senten6[]="<h2>Hello World! <i>Better One!!!<\/i><\/h2>\\n";$/;"	v	file:
+senten7	dealer.c	/^static char senten7[]="<\/body>\\n";$/;"	v	file:
+senten8	dealer.c	/^static char senten8[]="<\/html>\\n";$/;"	v	file:
+serverInfoType	httpServer.h	/^enum serverInfoType {GET,POST};$/;"	g
+servfd	main.c	/^int servfd = -1;$/;"	v
+show	httpServer.c	/^void show(httpInfo information)$/;"	f
+showPresentAccessedAccounts	account.c	/^void showPresentAccessedAccounts()$/;"	f
+showPresentAccounts	account.c	/^void showPresentAccounts()$/;"	f
+sigint_handler	main.c	/^void sigint_handler(int signum) {$/;"	f
+signupDone	fileEdit.c	/^static char signupDone[]="Done signing up!";$/;"	v	file:
+simplifiedItoa	fileEdit.c	/^void simplifiedItoa(size_t length,char *dst)$/;"	f
+std	fileEdit.c	/^using namespace std;$/;"	v
+strPointer	httpServer.h	/^typedef char* strPointer;$/;"	t
+tempInfo	main.c	/^httpInfo tempInfo;$/;"	v
+tempo	main.c	/^char *tempo,*resulta,*finalResult,*bufPointer;$/;"	v
+toSwitch	dealer.c	/^static bool toSwitch=false;$/;"	v	file:
+tryGzip	main.c	/^bool tryGzip;$/;"	v
+type	main.c	/^int type;$/;"	v
+unacceptedInfo	main.c	/^static const char unacceptedInfo[]="HTTP\/1.1 200 OK\\r\\nContent-Length: 11\\r\\nContent-Type: text\/html\\r\\n\\r\\nPlease wait";$/;"	v	file:
+user	account.h	/^typedef struct user{$/;"	s
+userAgentInfo	httpServer.h	/^	char userAgentInfo[1000];$/;"	m	struct:Info
+users	account.c	/^User users[MAXUSERSIZE];$/;"	v
+usrLogin	fileEdit.c	/^static char usrLogin[]="Welcome!";$/;"	v	file:
+usrMismatch	fileEdit.c	/^static char usrMismatch[]="No such user!";$/;"	v	file:
+usrName	account.h	/^	char usrName[30];$/;"	m	struct:user
+usrName	fileEdit.c	/^static char usrName[30];$/;"	v	file:
+usrNumbers	account.c	/^static int usrNumbers;$/;"	v	file:
+usrPassword	account.h	/^	char usrPassword[30];$/;"	m	struct:user
+usrPassword	fileEdit.c	/^static char usrPassword[30];$/;"	v	file:
+usrSameName	fileEdit.c	/^static char usrSameName[]="The account already exists!";$/;"	v	file:
+usrWrongCode	fileEdit.c	/^static char usrWrongCode[]="Wrong Code!";$/;"	v	file:
+writeAccountFile	dealer.c	/^void writeAccountFile(char *accountName)$/;"	f
+writeFile	fileEdit.c	/^void writeFile(char *dst,int size)$/;"	f
+writeFileResponse	fileEdit.c	/^char* writeFileResponse(char *pathName,bool tryGzip)$/;"	f
+writeSimpleResponse	fileEdit.c	/^char* writeSimpleResponse(char *msg)$/;"	f
+writeString	fileEdit.c	/^void writeString(char *dst,char *src)$/;"	f

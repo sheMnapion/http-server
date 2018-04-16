@@ -306,7 +306,7 @@ int loadPicture(char *pathName,bool *tryCompress)
 					imageBuffer[i++]=c;
 				}
 				fclose(compressedInput);
-				printf("Done here afer compressing\n");
+				printf("Done here afer compressing %s\n",pathName);
 				return i;
 			}
 			assert(0);//must have compressed
@@ -424,6 +424,8 @@ char* writeFileResponse(char *pathName,bool tryGzip)
 	bool tryCompress=true;
 	if(strcmp(pathName,"a.txt")==0)
 		tryCompress=false;	
+	if(strcmp(pathName,"audio/9714.wav")==0)
+		tryCompress=false;
 	if(!tryGzip)
 		tryCompress=false;
 	size=loadPicture(pathName,&tryCompress);

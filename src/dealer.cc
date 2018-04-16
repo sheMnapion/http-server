@@ -3,6 +3,7 @@
 #include "dealer.h"
 #include <string>
 #define MAXSIZE 0x100000
+
 static char message[100000];
 static char buffer[MAXSIZE];
 static bool toSwitch=false;
