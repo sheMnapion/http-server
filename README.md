@@ -18,3 +18,5 @@
 	</ul>
 </p>
 <q>By Lac Jolime Lee 2018.2.28</q>
+<h2>Update on 2018.6.4<h2>
+<p>Now the server has another version of python named python.py! This means that you could start the server by typing 'python http.py' in the terminal while holding almost same functionalities while more standardized specifications. Would keep updating on python version in branch 'pythonServer'.</p>
