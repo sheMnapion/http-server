@@ -22,14 +22,15 @@ void sigint_handler(int signum) {
 	exit(0);
 }
 const int queueSize=10;
-int volatile fdQueue[queueSize];
+int volatile count=0;
 int volatile queueNumber=0;
 int volatile queueFrontPointer,queueEndPointer;
-bool isFull()
+/*bool isFull()
 {
 	return queueFrontPointer==0?(queueEndPointer==9):(queueEndPointer==queueFrontPointer-1);
 }
-bool isEmpty(){return queueFrontPointer==queueEndPointer;}
+bool isEmpty(){return queueFrontPointer==queueEndPointer;}*/
+/*
 void enQueue(int fd)
 {
 	fdQueue[queueFrontPointer++]=fd;
@@ -43,7 +44,7 @@ int deQueue()
 	queueNumber--;
 	return ret;
 }
-
+*/
 void initServer(int argc,char *argv[])
 {
 	servfd = socket(AF_INET, SOCK_STREAM, 0);
@@ -86,9 +87,9 @@ void initServer(int argc,char *argv[])
 void *ht_client(void *args)
 {
     while(true){
-        pthread_mutex_lock(&lock);
+        //pthread_mutex_lock(&lock);
 		printf("QUEUE NUMBER in client:%d %u\n",queueNumber,pthread_self());
-        while(queueNumber==10)
+        while(count>0)
             pthread_cond_wait(&answerRequest,&lock);
 		printf("AFER CHECK ANS IN CLIENT\n");
         int lis=listen(servfd, 50);
@@ -98,22 +99,31 @@ void *ht_client(void *args)
 			struct sockaddr_in client_addr;
 			socklen_t length = sizeof(client_addr);
 			memset(buf,0,sizeof(buf));
+			printf("TO HERE\n");
 			conn = accept(servfd, (struct sockaddr*)&client_addr, &length);
 			printf("TO HERE\n");
 			if(conn>=0){
 				printf("Accepted with conn:%d\n",conn);
-				enQueue(conn);
+				//enQueue(conn);
+				count=conn;
 				bufPointer=buf;
 				ssize_t readLength=read(conn,(void *)bufPointer,READ_LENGTH);
 				while(readLength==READ_LENGTH){
 					bufPointer+=readLength;
 					readLength=read(conn,(void *)bufPointer,READ_LENGTH);
 				}
+				bufPointer=buf;
+				ssize_t readLength=read(fd,(void *)bufPointer,READ_LENGTH);
+				while(readLength==READ_LENGTH){
+					bufPointer+=readLength;
+					readLength=read(fd,(void *)bufPointer,READ_LENGTH);
+				}
+				printf("READLENGTH:%u\n",readLength);
 				pthread_cond_signal(&receiveRequest);
 			}
 		}
 		printf("DONE RECEIVING %d\n",conn);
-		pthread_mutex_unlock(&lock);
+		//pthread_mutex_unlock(&lock);
     }
     return NULL;
 }
@@ -122,19 +132,13 @@ void *ht_server(void *args)
 {
 	printf("IN SERVER\n");
     while(true){
-        pthread_mutex_lock(&lock);
+        //pthread_mutex_lock(&lock);
 		printf("QUEUE NUMBER in server:%d %u\n",queueNumber,pthread_self());
-		while(queueNumber==0)
+		while(count==0)
             pthread_cond_wait(&receiveRequest,&lock);
 
-        int fd=deQueue();
+        int fd=count;
 		printf("FD in server:%d\n",fd);
-		bufPointer=buf;
-		ssize_t readLength=read(fd,(void *)bufPointer,READ_LENGTH);
-		while(readLength==READ_LENGTH){
-			bufPointer+=readLength;
-			readLength=read(fd,(void *)bufPointer,READ_LENGTH);
-		}
         tempInfo=analyzeExplorer(buf);
 		show(tempInfo);
 		tempo=analyzeInput(buf);
@@ -156,8 +160,9 @@ void *ht_server(void *args)
 		[[maybe_unused]]
 		int len=write(fd, finalResult, resultSize);
 		close(fd);
+		count=0;
 		pthread_cond_signal(&answerRequest);
-		pthread_mutex_unlock(&lock);
+		//pthread_mutex_unlock(&lock);
     }
     return NULL;
 }
@@ -177,8 +182,8 @@ void initThreads()
 	ret=pthread_create(&id4,NULL,ht_client,NULL);
 	assert(ret==0);
 	queueFrontPointer=queueEndPointer=0;
-	queueNumber=0;
-	assert(isEmpty());
+	//queueNumber=0;
+	//assert(isEmpty());
 }
 int main(int argc,char *argv[]) {
 	printf("Present process id:%d\n",getpid());
